@@ -7,7 +7,7 @@ Este proyecto implementa un chatbot basado en Retrieval-Augmented Generation (RA
 - **Segmentación y procesamiento de texto** usando `langchain-text-splitters`.
 - **Indexación eficiente** de documentos con Pinecone.
 - **Generación de respuestas inteligentes** con modelos de lenguaje a través de Ollama.
-- **Interfaz de usuario** con Streamlit para interacciones fáciles.
+- **Interfaz de usuario** con gradio para interacciones fáciles.
 
 ## Instalación
 Sigue los siguientes pasos para configurar el entorno:
