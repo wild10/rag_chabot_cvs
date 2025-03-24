@@ -1,0 +1,57 @@
+import boto3
+from langchain_community.document_loaders import WebBaseLoader, CSVLoader, PyPDFLoader
+
+aws_access_key_id = ""
+aws_secret_access_key = ""
+
+def load_pdfs(urls):
+    docs = []
+    # for pdf_file in pdf_files:
+    for key, url in urls.items():
+        # docs.extend(PyPDFLoader(file_path=url).load())
+        docs.extend([doc.page_content for doc in PyPDFLoader(file_path=url).load()])
+    return docs
+
+
+def generate_presigned_urls_for_bucket(bucket_name, expiration=3600):
+    
+    # Initialize the S3 client
+    # s3_client = boto3.client('s3')
+    s3_client = boto3.client(
+         "s3",
+         aws_access_key_id=aws_access_key_id,
+         aws_secret_access_key=aws_secret_access_key
+    )
+
+    # Dictionary to store presigned URLs
+    presigned_urls = {}
+
+    # Paginate through all objects in the bucket
+    paginator = s3_client.get_paginator('list_objects_v2')
+    page_iterator = paginator.paginate(Bucket=bucket_name)
+
+    for page in page_iterator:
+        if 'Contents' in page:
+            for obj in page['Contents']:
+                key = obj['Key']
+                # Generate a presigned URL for the object
+                url = s3_client.generate_presigned_url(
+                    ClientMethod='get_object',
+                    Params={'Bucket': bucket_name, 'Key': key},
+                    ExpiresIn=expiration
+                )
+                # Store the presigned URL in the dictionary
+                presigned_urls[key] = url
+
+    return presigned_urls
+
+# Example usage
+if __name__ == "__main__":
+    bucket_name = 'cvs-caleidos-wild22032025'
+    urls = generate_presigned_urls_for_bucket(bucket_name)
+
+    for key, url in urls.items():
+        print(f"Presigned URL for {key}: {url}")
+    
+    text = load_pdfs(urls)
+    print(text)
