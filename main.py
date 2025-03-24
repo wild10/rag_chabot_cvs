@@ -42,7 +42,7 @@ spanish_embed = OllamaEmbeddings(model='jina/jina-embeddings-v2-base-es')
 vectors = spanish_embed.embed_documents(list_texts)
 
 # Initialize Pinecone client
-pc = Pinecone(api_key="pcsk_4H7bJP_Lov3Y9CwLYbwGgLTcwwd24qE4cfVbavXfizkDxaMx7tAFtUc48gNBokWc4tdeBj")
+pc = Pinecone(api_key="put your API key ")
 index_name = "spanish-test-index"
 
 # Create index if it doesn't exist
