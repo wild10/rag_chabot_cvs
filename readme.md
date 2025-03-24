@@ -42,7 +42,7 @@ Para ejecutar el chatbot, usa el siguiente comando:
 streamlit run main.py
 ```
 
-Esto iniciará la interfaz en tu navegador, donde podrás cargar CVs y hacer preguntas.
+Esto iniciará la interfaz en tu navegador, tipo local host donde puedes hacer preguntas.
 
 ## Estructura del Proyecto
 ```
