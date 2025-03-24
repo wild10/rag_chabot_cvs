@@ -1,0 +1,61 @@
+# Chatbot RAG para Análisis de CVs
+
+Este proyecto implementa un chatbot basado en Retrieval-Augmented Generation (RAG) para analizar y responder preguntas sobre currículums vitae (CVs) de profesionales. Utiliza modelos de lenguaje como LLaMA y DeepSeek junto con herramientas de indexación y recuperación de datos como Pinecone y LangChain.
+
+## Características
+- **Carga de CVs** en formato PDF.
+- **Segmentación y procesamiento de texto** usando `langchain-text-splitters`.
+- **Indexación eficiente** de documentos con Pinecone.
+- **Generación de respuestas inteligentes** con modelos de lenguaje a través de Ollama.
+- **Interfaz de usuario** con Streamlit para interacciones fáciles.
+
+## Instalación
+Sigue los siguientes pasos para configurar el entorno:
+
+### 1. Clonar el repositorio
+```bash
+cd ~/Documents/projects/
+git clone <URL_DEL_REPOSITORIO>
+cd CVs_caleidos
+```
+
+### 2. Crear y activar el entorno con Conda
+```bash
+source /home/wilderd/anaconda3/bin/activate
+conda activate llm_env
+```
+
+### 3. Instalar dependencias
+```bash
+pip install pinecone langchain streamlit ollama
+pip install pymupdf
+pip install -qU langchain-text-splitters
+pip install -U langchain_ollama
+pip install -qU langchain-pinecone
+pip install -U langchain-community
+```
+
+## Uso
+Para ejecutar el chatbot, usa el siguiente comando:
+```bash
+streamlit run app.py
+```
+
+Esto iniciará la interfaz en tu navegador, donde podrás cargar CVs y hacer preguntas.
+
+## Estructura del Proyecto
+```
+CVs_caleidos/
+│── app.py                 # Aplicación principal con Streamlit
+│── config.py              # Configuración de API keys y credenciales
+│── data/                  # Carpeta para almacenar los CVs
+│── embeddings.py          # Generación de embeddings para los documentos
+│── inference.py           # Interacción con el modelo LLM
+│── requirements.txt       # Lista de dependencias
+│── README.md              # Documentación del proyecto
+```
+
+## Licencia
+---
+**Autor:** Errol W. Mamani Condori all right reserved.
+
