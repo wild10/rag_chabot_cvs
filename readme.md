@@ -15,11 +15,12 @@ Sigue los siguientes pasos para configurar el entorno:
 ### 1. Clonar el repositorio
 ```bash
 cd ~/Documents/projects/
-git clone <URL_DEL_REPOSITORIO>
+git clone <this repository>
 cd CVs_caleidos
 ```
 
 ### 2. Crear y activar el entorno con Conda
+se debe crear un ambiente virtual con anaconda con elnombre llm_env y ejecutar esto.
 ```bash
 source /home/wilderd/anaconda3/bin/activate
 conda activate llm_env
@@ -38,7 +39,7 @@ pip install -U langchain-community
 ## Uso
 Para ejecutar el chatbot, usa el siguiente comando:
 ```bash
-streamlit run app.py
+streamlit run main.py
 ```
 
 Esto iniciará la interfaz en tu navegador, donde podrás cargar CVs y hacer preguntas.
@@ -46,12 +47,9 @@ Esto iniciará la interfaz en tu navegador, donde podrás cargar CVs y hacer pre
 ## Estructura del Proyecto
 ```
 CVs_caleidos/
-│── app.py                 # Aplicación principal con Streamlit
-│── config.py              # Configuración de API keys y credenciales
+│── main.py                 # Aplicación principal con Streamlit
+│── aws_bot3.py              # Configuración de API keys y credenciales
 │── data/                  # Carpeta para almacenar los CVs
-│── embeddings.py          # Generación de embeddings para los documentos
-│── inference.py           # Interacción con el modelo LLM
-│── requirements.txt       # Lista de dependencias
 │── README.md              # Documentación del proyecto
 ```
 
