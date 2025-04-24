@@ -2,7 +2,7 @@
 
 Este proyecto implementa un chatbot basado en Retrieval-Augmented Generation (RAG) para analizar y responder preguntas sobre currículums vitae (CVs) de profesionales. Utiliza modelos de lenguaje como LLaMA y DeepSeek junto con herramientas de indexación y recuperación de datos como Pinecone y LangChain.
 [arquitectura](arquitectura_rag.pdf)
-
+[demo](arequitectura.png)
 ## Características
 - **Carga de CVs** en formato PDF.
 - **Segmentación y procesamiento de texto** usando `langchain-text-splitters`.
